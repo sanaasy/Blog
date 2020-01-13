@@ -1,0 +1,41 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+   <div class="field">
+    <%= form.label "Category"%>
+    <%= form.select :category, [['Hot','hot'],['Medium','medium'],['Cold','cold']] %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Tags"%>
+    <%= form.select(:TYPE, [['Type A', 'Type A'], ['Type B', 'Type B'], ['Type C', 'Type C'], ['Type D', 'Type D'], ['Type E', 'Type E'] ], { :multiple => true, :size => 5 }) %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
