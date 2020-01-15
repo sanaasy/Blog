@@ -1,3 +1,5 @@
 class Category < ApplicationRecord
-    validates :category_name, presence: true
+    has_many :post
+
+    validates :category_name, presence: true, uniqueness: true
 end

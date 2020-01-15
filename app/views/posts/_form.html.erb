@@ -26,15 +26,6 @@
     <%= form.date_select :date %>
   </div>
 
-   <div class="field">
-    <%= form.label "Category"%>
-    <%= form.select :category, [['Hot','hot'],['Medium','medium'],['Cold','cold']] %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Tags"%>
-    <%= form.select(:TYPE, [['Type A', 'Type A'], ['Type B', 'Type B'], ['Type C', 'Type C'], ['Type D', 'Type D'], ['Type E', 'Type E'] ], { :multiple => true, :size => 5 }) %>
-  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

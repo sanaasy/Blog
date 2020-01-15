@@ -10,6 +10,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @tags = Tag.all
+    @user = @post.user.first_name
+    @comments = @post.comments
   end
 
   # GET /posts/new
@@ -20,6 +23,10 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+
+  def stats
+
+  end 
 
   # POST /posts
   # POST /posts.json

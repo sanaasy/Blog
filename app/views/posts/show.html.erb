@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <span><%= User.find(@post.user_id).first_name %> <%= User.find(@post.user_id).last_name %></span>
+</p>
+
+<p>
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
@@ -13,6 +18,22 @@
 <p>
   <strong>Date:</strong>
   <%= @post.date %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <span><%= Category.find(@post.category_id).category_name %></span>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <% @post.tags.each do |tag|%>
+    <span><%= tag.tag_name %></span>
+  <% end %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
