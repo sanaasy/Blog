@@ -34,6 +34,10 @@
 
 <p>
   <strong>Comments:</strong>
+  <% @post.comments.each do |c| %>
+    <%= c.user.first_name %>: <%= c.comment %>
+    <br>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

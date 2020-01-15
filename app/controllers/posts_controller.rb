@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @tags = Tag.all
-    @user = @post.user.first_name
+    @user = @post.user
+    @category = @post.category
     @comments = @post.comments
   end
 
@@ -27,7 +28,7 @@ class PostsController < ApplicationController
   def stats
     @user_with_most_c = (Post.all).group(:user_id).first.user.first_name
     @most_c = (Post.all).group(:user_id).count().first[1]
-    @most_used_tags = Tagging.joins(:tag).group(:tag_name).count().first[0]
+    @most_used_tags = Tagging.joins(:tag).group(:tag_name).count()
     @longest_post = Post.order('LENGTH(content) DESC').first.title
   end 
 
