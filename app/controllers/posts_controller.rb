@@ -25,7 +25,8 @@ class PostsController < ApplicationController
   end
 
   def stats
-
+    @user_with_most_c = (Post.all).group(:user_id).first.user.first_name
+    
   end 
 
   # POST /posts
