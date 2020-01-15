@@ -34,9 +34,9 @@
 
 <p>
   <strong>Comments:</strong>
-  <% @post.comments.each do |c| %>
-    <%= c.user.first_name %>: <%= c.comment %>
+  <% @comments.each do |c| %>
     <br>
+    <%= c.user.first_name %>: <%= c.comment %>
   <% end %>
 </p>
 
