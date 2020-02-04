@@ -1,7 +1,13 @@
-<h1> Blog Stats </h1>
+<% provide(:title, "Stats Page")%>
+
+<h1> WELCOME TO THE STATS LEADERBOARD </h1>
 
 <p><strong>User with most comments:</strong> <%= @user_with_most_c %> (<%= @most_c %>)</p>
 
-<p><strong>Top 5 most used tags:</strong> <% @most_used_tags.each do |tag| %><%= tag.tag_name %>,<% end %></p>
+<p><strong>Top 5 most used tags:</strong> 
+<% @most_used_tags.each do |tag| %>
+    <%= tag.tag_name %>, 
+<% end %>
+</p>
 
 <p><strong>Longest Blog Post:</strong> <%= @longest_post %></p>

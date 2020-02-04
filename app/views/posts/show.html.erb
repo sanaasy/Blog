@@ -1,3 +1,5 @@
+<% provide(:title, "Blog Content")%>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,7 +19,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @post.date %>
+  <%= @post.date.to_s(:long) %>
 </p>
 
 <p>
@@ -28,15 +30,15 @@
 <p>
   <strong>Tags:</strong>
   <% @post.tags.each do |tag|%>
-    <span><%= tag.tag_name %></span>
+    <span>(<%= tag.tag_name %>)</span>
   <% end %>
 </p>
 
 <p>
   <strong>Comments:</strong>
-  <% @comments.each do |c| %>
+  <% @comments.each do |comment| %>
     <br>
-    <%= c.user.first_name %>: <%= c.comment %>
+    <%= comment.user.first_name %>: <%= comment.comment %>
   <% end %>
 </p>
 

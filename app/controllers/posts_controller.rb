@@ -26,9 +26,9 @@ class PostsController < ApplicationController
   end
 
   def stats
-    @user_with_most_c = (Post.all).group(:user_id).first.user.first_name
-    @most_c = (Post.all).group(:user_id).count().first[1]
-    @most_used_tags = Tag.joins(:taggings).group(:post_id).select('tags.*, COUNT(*) as t').order('t DESC').limit(5)
+    @user_with_most_c = Post.group(:user_id).first.user.first_name
+    @most_c = Comment.group(:user_id).count().first[1]
+    @most_used_tags = Tag.joins(:taggings).group(:post_id).select('tags.*, COUNT(*) as tag').order('tag DESC').limit(5)
     @longest_post = Post.order('LENGTH(content) DESC').first.title
   end 
 
