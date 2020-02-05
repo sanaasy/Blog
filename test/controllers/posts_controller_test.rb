@@ -17,7 +17,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference('Post.count') do
-      post posts_url, params: { post: { content: @post.content, date: @post.date, title: @post.title } }
+      post posts_url, params: { post: { content: @post.content, date: @post.date, title: 'hello', user_id: @post.user_id, category_id: @post.category_id } }
     end
 
     assert_redirected_to post_url(Post.last)
@@ -34,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post" do
-    patch post_url(@post), params: { post: { content: @post.content, date: @post.date, title: @post.title } }
+    patch post_url(@post), params: { post: { content: @post.content, date: @post.date, title: 'hello', user_id: @post.user_id, category_id: @post.category_id } }
     assert_redirected_to post_url(@post)
   end
 
@@ -46,8 +46,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to posts_url
   end
 
-  test "should get about" do
-    get static_pages_about
+  test "should get root" do
+    get root_url
     assert_response :success
   end
 end

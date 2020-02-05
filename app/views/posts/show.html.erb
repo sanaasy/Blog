@@ -28,9 +28,9 @@
 </p>
 
 <p>
-  <strong>Tags:</strong>
+  <strong>Tag(s):</strong>
   <% @post.tags.each do |tag|%>
-    <span>(<%= tag.tag_name %>)</span>
+    <span class="badge badge-pill badge-warning"><%= tag.tag_name %></span>
   <% end %>
 </p>
 
