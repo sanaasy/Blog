@@ -11,3 +11,22 @@ body {
 .indexPicture{
   background-image: url("desktop.jpg");
 }
+
+.blogTitle {
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 48px; 
+  text-align: center; 
+  background: -webkit-linear-gradient(#3EADCF, #ABE9CD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blogShow {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+}
+
+.blogDate {
+  text-align: right;
+  margin-left: 80%;
+}

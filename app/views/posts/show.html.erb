@@ -2,45 +2,58 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<div class="blogTitle">
+  <br>
   <%= @post.title %>
-</p>
+  <br>
+  <br>
+  <br>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <span><%= User.find(@post.user_id).first_name %> <%= User.find(@post.user_id).last_name %></span>
-</p>
+<div>
+  <strong class="blogShow">Author:</strong>
+  <%= User.find(@post.user_id).first_name %> <%= User.find(@post.user_id).last_name %>
+  <span class="blogDate">
+    <%= @post.date.to_s(:long) %>
+  </span>
+  <br>
+  <br>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @post.date.to_s(:long) %>
-</p>
-
-<p>
-  <strong>Category:</strong>
+<div>
+  <strong class="blogShow">Category:</strong>
   <span><%= Category.find(@post.category_id).category_name %></span>
-</p>
+  <br>
+  <br>
+</div>
 
-<p>
-  <strong>Tag(s):</strong>
+<div class="container">
+  <%= @post.content %>
+  <br>
+  <br>
+</div>
+
+<div>
+  <strong class="blogShow">Tag(s):</strong>
   <% @post.tags.each do |tag|%>
     <span class="badge badge-pill badge-warning"><%= tag.tag_name %></span>
   <% end %>
-</p>
+  <br>
+  <br>
+</div>
 
-<p>
-  <strong>Comments:</strong>
+<div>
+  <strong class="blogShow">Comments:</strong>
   <% @comments.each do |comment| %>
     <br>
+    <br>
     <%= comment.user.first_name %>: <%= comment.comment %>
+    <br>
+    <br>
   <% end %>
-</p>
+  <br>
+  <br>
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
