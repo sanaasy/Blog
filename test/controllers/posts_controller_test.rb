@@ -50,4 +50,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get root_url
     assert_response :success
   end
+
+  test "should get current year" do
+    get '/about'
+    assert_select 'div.footer', "Sanaa's Blog © Copyright " + Date.current.year.to_s
+  end
 end
