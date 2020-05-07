@@ -10,6 +10,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @tags = @post.tags
+    @user = @post.user
+    @category = @post.category
+    @comments = @post.comments
   end
 
   # GET /posts/new
@@ -20,6 +24,13 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+
+  def stats
+    @user_with_most_c = Post.group(:user_id).first.user.first_name
+    @most_c = Comment.group(:user_id).count().first[1]
+    @most_used_tags = Tag.joins(:taggings).group(:post_id).select('tags.*, COUNT(*) as tag').order('tag DESC').limit(5)
+    @longest_post = Post.order('LENGTH(content) DESC').first.title
+  end 
 
   # POST /posts
   # POST /posts.json
@@ -69,6 +80,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :date)
+      params.require(:post).permit(:title, :content, :date, :user_id, :category_id)
     end
 end

@@ -1,7 +1,14 @@
+$red: red;
+
 body {
   background-color: #fff;
-  color: #333;
-  margin: 33px; }
+  color: #000000;
+  margin: 33px; 
+
+  a,a:visited{
+    
+  }
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -63,3 +70,5 @@ div.actions {
 
 label {
   display: block; }
+
+
